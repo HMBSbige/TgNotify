@@ -24,6 +24,8 @@ jobs:
         run: |
           $version = & ${{ vars.GET_VERSION_SCRIPT }}
           "latest_version=$version" >> $env:GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Send Telegram Message
         if: ${{ vars.VERSION != env.latest_version }}
