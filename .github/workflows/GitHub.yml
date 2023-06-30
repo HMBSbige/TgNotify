@@ -11,6 +11,8 @@ jobs:
         env_name:
           - ClashPremium
           - ArchiSteamFarm
+          - SeafileServerPro
+          - SeafileClient
     name: Check GitHub Release
     runs-on: ubuntu-latest
     environment: ${{ matrix.env_name }}
