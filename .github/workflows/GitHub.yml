@@ -14,6 +14,7 @@ jobs:
           - SeafileServerPro
           - SeafileClient
           - TrueNASSCALE
+          - CrystalDiskInfo
     name: Check GitHub Release
     runs-on: ubuntu-latest
     environment: ${{ matrix.env_name }}
@@ -31,7 +32,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Send Telegram Message
-        if: ${{ vars.VERSION != env.latest_version }}
+        if: ${{ env.latest_version != '' && vars.VERSION != env.latest_version }}
         shell: pwsh
         env:
           TELEGRAM_BOT_APITOKEN: ${{ secrets.TELEGRAM_BOT_APITOKEN }}
@@ -45,7 +46,7 @@ jobs:
           ./Send-TelegramMessage.ps1 ${{ vars.VERSION }} ${{ env.latest_version }}
 
       - name: Update VERSION
-        if: ${{ vars.VERSION != env.latest_version }}
+        if: ${{ env.latest_version != '' && vars.VERSION != env.latest_version }}
         shell: bash
         run: |
           gh api \
