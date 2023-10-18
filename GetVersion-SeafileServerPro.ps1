@@ -1,15 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$headers = @{
-	Authorization = "Bearer $env:GITHUB_TOKEN"
-}
+$json = Invoke-RestMethod 'https://docker.seafile.top/api/v2.0/projects/seafileltd/repositories/seafile-pro-mc/artifacts/latest/tags?page=1&page_size=1'
 
-$content = Invoke-RestMethod -Headers $headers 'https://raw.githubusercontent.com/haiwen/seafile-admin-docs/master/manual/changelog/changelog-for-seafile-professional-server.md'
-
-foreach ($line in $content -split '\n') {
-	if ($line.StartsWith('### ')) {
-		$version = ($line -split ' ')[1]
-		Write-Output $version
-		break
-	}
-}
+$verison = $json[0].name
+Write-Output $verison
