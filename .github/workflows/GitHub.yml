@@ -9,7 +9,6 @@ jobs:
     strategy:
       matrix:
         env_name:
-          - ClashPremium
           - ArchiSteamFarm
           - SeafileServerPro
           - SeafileClient
