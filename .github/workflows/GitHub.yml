@@ -15,6 +15,7 @@ jobs:
           - SeafileClient
           - TrueNASSCALE
           - CrystalDiskInfo
+          - Linux-LTS
     name: Check GitHub Release
     runs-on: ubuntu-latest
     environment: ${{ matrix.env_name }}
