@@ -4,7 +4,7 @@ $headers = @{
 	Authorization = "Bearer $env:GITHUB_TOKEN"
 }
 
-$content = Invoke-RestMethod -Headers $headers 'https://raw.githubusercontent.com/hiyohiyo/CrystalDiskInfo/master/stdafx.h'
+$content = Invoke-RestMethod -Headers $headers 'https://raw.githubusercontent.com/hiyohiyo/CrystalDiskInfo/master/Library/stdafx.h'
 
 foreach ($line in $content -split '\n') {
 	if ($line.Contains('PRODUCT_VERSION')) {
