@@ -16,6 +16,7 @@ jobs:
           - TrueNASSCALE
           - CrystalDiskInfo
           - Linux-LTS
+          - MKVToolNix
     name: Check GitHub Release
     runs-on: ubuntu-latest
     environment: ${{ matrix.env_name }}
