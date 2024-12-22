@@ -18,6 +18,7 @@ jobs:
           - Linux-LTS
           - MKVToolNix
           - SafeLine
+          - TechnitiumDNSServer
     name: Check GitHub Release
     runs-on: ubuntu-latest
     environment: ${{ matrix.env_name }}
