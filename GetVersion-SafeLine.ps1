@@ -1,11 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$json = Invoke-RestMethod 'https://hub.docker.com/v2/repositories/chaitin/safeline-mgt/tags?page_size=2&page=1&ordering=last_updated'
+$json = Invoke-RestMethod 'https://waf-ce.chaitin.cn/release/latest/version.json'
 
-foreach ($item in $json.results) {
-	$version = $null
-	if ([Version]::TryParse($item.name, [ref] $version)) {
-		Write-Output $version.ToString()
-		exit 0
-	}
-}
+$verison = $json.latest_version.Trim('v')
+Write-Output $verison
