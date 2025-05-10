@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$json = Invoke-RestMethod 'https://hub.docker.com/v2/repositories/library/haproxy/tags?name=alpine&ordering=last_updated'
+$json = Invoke-RestMethod 'https://hub.docker.com/v2/repositories/library/haproxy/tags?name=alpine&ordering=last_updated&page=1&page_size=100'
 
 $versions = @()
 
