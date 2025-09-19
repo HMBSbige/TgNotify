@@ -11,8 +11,6 @@ jobs:
       matrix:
         env_name:
           - ArchiSteamFarm
-          - SeafileServerPro
-          - SeafileClient
           - TrueNASSCALE
           - SafeLine
           - TechnitiumDNSServer
