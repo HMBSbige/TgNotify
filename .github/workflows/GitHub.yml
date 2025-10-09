@@ -16,6 +16,7 @@ jobs:
           - TechnitiumDNSServer
           - crproxy
           - HAProxy
+          - Kaspersky
     name: Check ${{ matrix.env_name }}
     runs-on: ubuntu-latest
     environment: ${{ matrix.env_name }}
