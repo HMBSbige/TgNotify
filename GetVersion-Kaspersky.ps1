@@ -6,7 +6,6 @@ $json = Invoke-RestMethod $url
 $response = $json[0].response.Windows.Kaspersky4Win.Downloader.'https://www.kaspersky.com.cn'
 
 $latestVersion = $null
-$latestVersionKey = $null
 
 foreach ($versionKey in $response.PSObject.Properties.Name) {
 	$versionData = $response.$versionKey
