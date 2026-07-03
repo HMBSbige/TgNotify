@@ -1,9 +1,9 @@
 $ErrorActionPreference = "Stop"
 
-$url = 'https://api-router.kaspersky-labs.com/downloads/search/v3/b2c?productcodes=5003617&businesspurposes=Update&licensetiers=Free&sites=https%3A%2F%2Fwww.kaspersky.com.cn'
+$url = 'https://api-router.kaspersky-labs.com/downloads/search/v3/b2c?productcodes=5003617&businesspurposes=Update&licensetiers=Free&sites=https%3A%2F%2Fwww.kaspersky.com'
 $json = Invoke-RestMethod $url
 
-$response = $json[0].response.Windows.Kaspersky4Win.Downloader.'https://www.kaspersky.com.cn'
+$response = $json[0].response.Windows.Kaspersky4Win.Downloader.'https://www.kaspersky.com'
 
 $latestVersion = $null
 
