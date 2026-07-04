@@ -2,24 +2,22 @@ $ErrorActionPreference = "Stop"
 
 $json = Invoke-RestMethod 'https://hub.docker.com/v2/repositories/library/haproxy/tags?name=alpine&ordering=last_updated&page=1&page_size=100'
 
-$versions = @()
+$latestVersion = $null
 
 foreach ($item in $json.results) {
 	if (-not $item.name.EndsWith('-alpine')) {
 		continue
 	}
 
-	if (($item.name -split '-').Count -ne 2) {
+	$tagParts = $item.name -split '-'
+	if ($tagParts.Count -ne 2) {
 		continue
 	}
 
-	$str = ($item.name -split '-')[0]
-
 	$version = $null
-	if ([Version]::TryParse($str, [ref] $version)) {
-		$versions += $version
+	if ([Version]::TryParse($tagParts[0], [ref] $version) -and ($null -eq $latestVersion -or $version -gt $latestVersion)) {
+		$latestVersion = $version
 	}
 }
 
-$versions = $versions | Sort-Object -Descending
-Write-Output $versions[0].ToString()
+Write-Output $latestVersion.ToString()

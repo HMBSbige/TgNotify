@@ -5,5 +5,5 @@ $headers = @{
 }
 
 $json = Invoke-RestMethod -Headers $headers 'https://api.github.com/repos/JustArchiNET/ArchiSteamFarm/releases/latest'
-$verison = $json.tag_name.Trim('v')
-Write-Output $verison
+$version = $json.tag_name.Trim('v')
+Write-Output $version
